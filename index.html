@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Егор Витальевич Владов - Руководитель отдела новостей</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -18,9 +19,10 @@
 
         <nav>
             <ul>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#works">Мои работы</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> Обо мне</a></li>
+                <li><a href="#works"><i class="fas fa-briefcase"></i> Мои работы</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Контакты</a></li>
+                <li><a href="#feedback"><i class="fas fa-comments"></i> Обратная связь</a></li>
             </ul>
         </nav>
 
@@ -42,6 +44,16 @@
             <h3>Контакты</h3>
             <p>Email: egorvladov@example.com</p>
             <p>Телефон: +373 555 12345</p>
+        </section>
+
+        <section id="feedback">
+            <h3>Обратная связь</h3>
+            <form id="feedbackForm">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="email" placeholder="Ваш Email" required>
+                <textarea placeholder="Ваше сообщение" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
         </section>
 
         <footer>
