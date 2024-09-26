@@ -1,185 +1,537 @@
-/* Общие стили */
-* {
+/* Общие стили для тела страницы */
+body {
+    font-family: Tahoma, sans-serif;
+    background-color: #ddeeff; /* Цвет фона, похожий на рабочий стол XP */
+    background-image: url('xpbackground.jpg'); /* Фоновое изображение */
+    background-size: cover;
+    background-position: center;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    color: #000080; /* Тёмно-синий цвет текста */
 }
 
-body {
-    background: radial-gradient(circle at center, #1e1e1e, #000000);
-    color: #e1e1e1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-/* Контейнер */
+/* Контейнер для содержания страницы */
 .container {
+    background-color: #f0f0f0; /* Светло-серый фон */
+    border: 2px solid #9ca9b3; /* Обводка как у окон XP */
+    padding: 20px;
+    margin: 20px auto;
     width: 90%;
     max-width: 1200px;
-    background: rgba(0, 0, 0, 0.9);
-    border-radius: 15px;
-    padding: 30px;
-    border: 3px solid #85bb65;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7), 0 0 30px #85bb65 inset;
-    animation: fadeIn 1s ease-in;
+    border-radius: 6px; /* Небольшое закругление углов */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Тень как у окон XP */
 }
 
-/* Анимация */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Заголовки */
+/* Стиль заголовка страницы */
 header {
+    background-image: url('xpbackground.jpg'); /* Фоновое изображение в заголовке */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-bottom: 2px solid #0071c1;
     text-align: center;
-    margin-bottom: 40px;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-h1 {
-    font-size: 3.5em;
-    color: #85bb65;
-    letter-spacing: 2px;
-    text-shadow: 0 8px 15px rgba(0, 0, 0, 0.8);
+/* Удаление полупрозрачного синего слоя */
+header::before {
+    content: "";
+    /* Удаляем слой с синим наложением */
+    display: none;
 }
 
-h2 {
-    font-size: 2.2em;
-    color: #d4d4d4;
-    margin: 10px 0;
+header h1, header h2 {
+    position: relative;
+    z-index: 1;
 }
 
-.profile-pic {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    border: 5px solid #85bb65;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+header:hover {
+    /* Убираем затемнение при наведении */
+    background-color: rgba(42, 124, 190, 1); /* Полностью непрозрачный цвет или уберите свойство, если не нужно */
 }
 
-.profile-pic:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(133, 187, 101, 1);
+header h1 {
+    font-size: 2em; /* Большие заголовки */
+    margin: 0;
 }
 
-/* Навигация */
+header h2 {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #e5f1fb;
+}
+
+/* Аватар без синего выделения */
+header img.profile-pic {
+    border-radius: 6px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #fff; /* Убедитесь, что нет синего цвета здесь */
+    width: 120px;
+    height: 120px;
+}
+
+/* Панель навигации */
 nav ul {
-    list-style-type: none;
+    background-color: #00599d; /* Темно-синяя полоса меню */
+    padding: 10px 0;
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
     flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    border-top: 2px solid #99ccff;
+    border-bottom: 2px solid #0071c1;
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 5px 15px;
 }
 
 nav ul li a {
+    color: white;
     text-decoration: none;
-    color: #85bb65;
-    font-size: 1.4em;
-    transition: color 0.3s, text-shadow 0.3s;
+    padding: 10px 20px;
+    display: inline-block;
+    background-color: #0071c1;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 15px #85bb65;
+    background-color: #00599d;
 }
 
-/* Разделы */
-section {
-    margin-bottom: 50px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease forwards;
+nav ul li a:active {
+    text-decoration: underline;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+nav ul li.active a {
+    background-color: #0071c1;
+    color: white;
 }
 
-h3 {
-    font-size: 2.2em;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-p, ul li {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #d1d1d1;
-    margin-bottom: 15px;
-}
-
-/* Обратная связь */
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-form input, form textarea {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #85bb65;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-}
-
-form button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #85bb65;
-    color: #ffffff;
+/* Кнопки */
+button, input[type="submit"], .read-more {
+    background-color: #d6e5f5;
+    border: 2px solid #0066cc;
+    color: #000;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background 0.3s;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-form button:hover {
-    background: #73a255;
+button:hover, input[type="submit"]:hover, .read-more:hover {
+    background-color: #9ebcdd; /* Светло-синий при наведении */
+    transform: scale(1.05);
+}
+
+input[type="submit"] {
+    background-color: #3399ff;
+    border: none;
+    color: white;
+    font-size: 1em;
+    border-radius: 6px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0071c1;
+}
+
+/* Поля ввода */
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #99ccff;
+    border-radius: 4px;
+    background-color: #f0faff;
+    font-size: 1em;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #0071c1;
+    box-shadow: 0 0 8px rgba(0, 113, 193, 0.5);
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff; /* Белый фон таблиц */
+}
+
+table, th, td {
+    border: 2px solid #99ccff;
+    padding: 10px;
+}
+
+th {
+    background-color: #e5f1fb;
+    color: #000080;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f0faff;
+}
+
+/* Панели */
+.panel {
+    background: linear-gradient(to bottom, #e5f1fb, #d6e5f5);
+    border: 2px solid #99ccff;
+    border-radius: 6px;
+    padding: 20px;
+margin-bottom: 20px;
+}
+
+.panel label {
+    font-weight: bold;
+    color: #000080;
 }
 
 /* Футер */
 footer {
+    background: linear-gradient(to right, #0071c1, #3399ff);
+    color: white;
     text-align: center;
-    margin-top: 30px;
-    color: #7a7a7a;
+    padding: 10px;
+    margin-top: 20px;
+    border-top: 2px solid #00599d;
 }
 
 footer p {
-    font-size: 0.9em;
+    margin: 0;
 }
 
-/* Адаптивность */
+footer .social-icons a {
+    display: inline-block;
+    background-color: #3399ff;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+footer .social-icons a:hover {
+    background-color: #0071c1;
+}
+
+/* Разделительные линии */
+hr {
+    border: none;
+    border-top: 2px solid #99ccff;
+    margin: 20px 0;
+}
+
+/* Логотипы */
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Анимации */
+@keyframes xpGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fillProgress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.slide {
+    animation: slideIn 0.5s ease-in;
+}
+
+.card-title {
+    font-size: 1.5em;
+    animation: fadeIn 0.8s;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #3399ff;
+    width: 0%;
+    animation: fillProgress 1s forwards;
+}
+
+/* Подсказки */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #00599d; /* Тёмно-синий фон */
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Позиция */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Карточки */
+.card, .comment-card {
+    background-color: #ffffff;
+    border: 2px solid #99ccff;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .comment-card:hover {
+    background-color: #f0faff;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.comment-card {
+    border: 1px solid #ccc;
+}
+
+.comment-card .comment-icon {
+    font-size: 1.2em;
+    color: #00599d;
+}
+
+.comment-card img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+/* Списки задач */
+.task-list {
+    list-style-type: square; /* Квадратные маркеры */
+    padding-left: 20px;
+}
+
+.task-list .remove {
+    background-color: #ff4d4d; /* Красный для удаления */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.task-list .remove:hover {
+    background-color: #e60000;
+}
+
+/* Переключатели */
+.toggle {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle.active {
+    background-color: #3399ff;
+}
+
+.toggle:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+.toggle.active:before {
+    transform: translateX(20px);
+}
+
+/* Выпадающие меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Иконки меню */
+.menu-icon, .nav-icon {
+    font-size: 1.5em;
+    color: #00599d;
+}
+
+/* Слайдеры и карусели */
+.slider, .carousel {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.slide, .carousel-item {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s;
+}
+
+.slide {
+    animation: slideIn 0.5s ease-in;
+}
+
+/* Сообщения */
+.error-message {
+    color: #ff0000; /* Красный для ошибок */
+    background-color: #ffe6e6;
+    padding: 10px;
+    border: 2px solid #ffcccc;
+    border-radius: 6px;
+}
+
+.info-message {
+    color: #00599d;
+    background-color: #e0f7ff;
+    padding: 10px;
+    border: 2px solid #b3e0ff;
+    border-radius: 6px;
+}
+
+.warning-message {
+    color: #cc8400; /* Оранжевый для предупреждений */
+    background-color: #fff6cc;
+    padding: 10px;
+    border: 2px solid #ffcc99;
+    border-radius: 6px;
+}
+
+/* Формы */
+form {
+    background-color: #e5f1fb;
+    border-radius: 6px;
+    padding: 20px;
+    transition: background-color 0.3s;
+}
+
+form:hover {
+    background-color: #d6e5f5;
+}
+
+/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.5em;
+    nav ul {
+        flex-direction: column;
     }
-    h2 {
-        font-size: 1.8em;
+
+    nav ul li {
+        margin: 10px 0;
     }
-    h3 {
+
+    header h1 {
         font-size: 1.5em;
     }
-    nav ul li {
-        margin: 0 10px;
+
+    header h2 {
+        font-size: 1em;
     }
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
     .profile-pic {
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
-    p, ul li {
-        font-size: 0.9em;
+
+    footer .social-icons a {
+        padding: 8px;
+        margin: 3px;
     }
 }
